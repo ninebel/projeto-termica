@@ -1,0 +1,25 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api:
+    build: ./api
+    ports:
+      - "5000:5000"
+    networks:
+      - internal_network
+    restart: always
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "80:80"
+    networks:
+      - internal_network
+    restart: always
+  mqtt_listener:
+    build: ./mqtt_listener
+    ports:
+        - "5001:5001"
+    restart: always
+networks:
+  internal_network:
+    driver: bridge
+

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Import Plotly (does not have to be from CDN) -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b><i class="fa fa-eye fa-fw"></i> Data</b></h2>
+  </header>
+
+  <!-- Contents -->
+  <div class="w3-container">
+
+    <!-- read variable form -->
+    <form class="w3-container w3-white w3-large" action="" method="POST">
+
+      {{ formReadData.csrf_token }}
+      <p>
+          <label class="w3-text-black"><b>VIEW DATA FROM VARIABLE</b></label>
+          <br><br>
+          <label class="w3-text-black">Variable name:&emsp;</label>
+          {{ formReadData.variable }}
+          <br><br>
+          <input type="submit" name={{ formReadData.__class__.__name__ }} value="View">
+      </p>
+    </form>
+    <br>
+
+  <!-- Display variable name -->
+  {% if items != [] %}
+    <h4>{{ variable }}</h4>
+  {% endif %}
+
+  <!-- Display Plotly graph -->
+  {% if items != [] %}
+    <div id="graph"></div>
+    <script>
+      var graph = {{ graph | safe }};
+      Plotly.plot('graph', graph, {});
+    </script>
+  {% endif %}
+  
+  <!-- Display table with values -->
+  <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+
+    {% for item in items %}
+      <tr>
+        <td>{{ item['time'] }}</td>
+        <td>{{ item['value'] }}</td>
+      </tr>
+    {% endfor %}
+
+    </table><br>
+  </div>
+
+
+{% endblock %}

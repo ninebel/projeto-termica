@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Import Plotly (does not have to be from CDN) -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b><i class="fa fa-dashboard"></i> Home</b></h2>
+  </header>
+
+  <!-- MongoDB graph TT1 -->
+  <div class="w3-container">
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="1200" height="500" src="https://charts.mongodb.com/charts-projeto-termica-aahvf/embed/charts?id=4cf601fc-2ac6-4064-9314-b83f6747c6fb&autoRefresh=10&theme=light"></iframe>
+  </div>
+
+  <!-- MongoDB graph TT2 -->
+  <div class="w3-container">
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="1200" height="500" src="https://charts.mongodb.com/charts-projeto-termica-aahvf/embed/charts?id=aaa5ad73-c7e2-499a-9cc6-4a5b0cbb9e7a&autoRefresh=10&theme=light"></iframe>
+  </div>
+
+  <!-- MongoDB graph Setpoint -->
+  <div class="w3-container">
+    <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="1200" height="500" src="https://charts.mongodb.com/charts-projeto-termica-aahvf/embed/charts?id=8683c4ec-0ac7-4dfa-92ca-ffb0e8a820d7&autoRefresh=10&theme=light"></iframe>
+  </div>
+
+{% endblock %}

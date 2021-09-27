@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h2><b><i class="fa fa-cog fa-fw"></i> Control</b></h2>
+  </header>
+
+  <br>
+
+  <!-- Conents -->
+  <div class="w3-container">
+
+    <!-- read variable form -->
+    <form class="w3-container w3-white w3-large" action="" method="POST">
+
+        {{ formReadVar.csrf_token }}
+        <p>
+            <label class="w3-text-black"><b>READ VARIABLE</b></label>
+            <br><br>
+            <label class="w3-text-black">Variable name:&emsp;</label>
+            {{ formReadVar.variable }}
+            <br><br>
+            <input type="submit" name={{ formReadVar.__class__.__name__ }} value="Read">
+        </p>
+    </form>
+    <br>
+    <!-- write variable form -->
+    <form class="w3-container w3-white w3-large" action="" method="POST">
+
+      {{ formWriteVar.csrf_token }}
+      <p>
+        <label class="w3-text-black"><b>WRITE TO VARIABLE</b></label>
+          <br><br>
+          <label class="w3-text-black">Variable name:&emsp;</label>
+          {{ formWriteVar.variable }}
+          <br><br>
+          <label class="w3-text-black">Variable type:&emsp;</label>
+          {{ formWriteVar.type }}
+          <br><br>
+          <label class="w3-text-black">Value:&emsp;</label>
+          {{ formWriteVar.value }}
+          <br>
+          <br>
+          <input type="submit" name={{ formWriteVar.__class__.__name__ }} value="Write">
+      </p>
+  </form>
+  </div>
+  
+{% endblock %}

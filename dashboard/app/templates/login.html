@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<title>Dashboard Projeto Termica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: 'Arial'}
+</style>
+
+    <body class="w3-light-grey">
+
+    <!-- Login -->
+    <header class="w3-container w3-light-grey w3-center" style="padding:15% 25%">
+
+        <div class="w3-card-4 w3-margin w3-margin w3-white">
+
+            <div class="w3-container w3-grey w3-xlarge">
+                <h2>Entre com a senha de acesso</h2>
+            </div>
+
+            <!-- Show the errors -->   
+            {% for message in get_flashed_messages() %}
+            <div class="w3-panel w3-yellow w3-border w3-margin">
+                <h3>Aviso</h3>
+                <p> {{ message }} </p>
+            </div>
+            {% endfor %}
+
+            <!-- Login form -->
+            <form class="w3-container w3-white w3-large" action="" method="POST">
+
+                {{ formLogin.csrf_token }}
+                <p>
+                <label class="w3-text-black"><b>Senha:&emsp;</b></label>
+                {{ formLogin.password }}
+                </p>
+
+                <input type="submit" class="w3-margin" value="Entrar">
+            </form>
+
+        </div>
+
+    </header>
+
+    </body>
+</html>
